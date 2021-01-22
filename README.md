@@ -7,6 +7,7 @@ lessons is a website build by vite and vue3
 git clone https://github.com/lubanproj/lessons.git
 cd lessons
 npm i
+npm run build
 npm run dev
 ```
 
