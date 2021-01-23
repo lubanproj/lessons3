@@ -11,6 +11,7 @@
             <el-menu-item index="1">动态</el-menu-item>
             <el-menu-item index="2">课程</el-menu-item>
           </el-menu>
+          <News/>
         </el-main>
         <el-footer></el-footer>
       </el-container>
@@ -20,7 +21,15 @@
 </template>
 
 <script>
+
+import News from './components/news.vue'
+
 export default {
+
+  components: {
+    News,
+  },
+
   data() {
     return {
       activeIndex: '1',
