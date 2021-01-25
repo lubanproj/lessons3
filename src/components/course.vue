@@ -3,7 +3,7 @@
     <li class="card" v-for="course in courseList" :key="course.id">
       <el-card class="box-card">
         <h4>{{course.title}}</h4>
-        <span>{{course.coverImg}}</span>
+        <span><img src="{{course.coverImg}}"/></span>
         <span>{{course.desc}}</span>
         <span>{{course.author.name}}</span>
         <span>{{course.author.title}}</span>
@@ -48,10 +48,31 @@ export default {
          price : "免费",
        }
      ]);
+
+     return {
+       courseList,
+     }
   }
 }
 </script>
 
 <style scoped>
+
+ul {
+  list-style: none;
+  padding-left:0px;
+}
+.card {
+  background: #fff;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+hr {
+  background-color: #f0f7ff;
+  border-color: #ffffff;
+  border-radius: 1px;
+}
 
 </style>

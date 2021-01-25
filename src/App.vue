@@ -8,10 +8,10 @@
       <el-container>
         <el-main>
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1">动态</el-menu-item>
-            <el-menu-item index="2">课程</el-menu-item>
+            <el-menu-item index="news">动态</el-menu-item>
+            <el-menu-item index="courses">课程</el-menu-item>
           </el-menu>
-          <News/>
+          <router-view/>
         </el-main>
         <el-footer></el-footer>
       </el-container>
@@ -20,24 +20,31 @@
   </el-container>
 </template>
 
-<script>
+<script lang="ts">
 
-import News from './components/news.vue'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import News from './components/news.vue';
+import Course from './components/course.vue';
 
 export default {
 
   components: {
     News,
+    Course,
   },
 
-  data() {
+  setup() {
+    const router = useRouter();
+    const activeIndex = ref('1');
+    const handleSelect = (key, keyPath) => {
+        const url = "/" + key;
+        router.push(url)
+    }
+
     return {
-      activeIndex: '1',
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      activeIndex,
+      handleSelect,
     }
   }
 }
