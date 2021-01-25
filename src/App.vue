@@ -8,8 +8,8 @@
       <el-container>
         <el-main>
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="news">动态</el-menu-item>
-            <el-menu-item index="courses">课程</el-menu-item>
+            <el-menu-item index="1">动态</el-menu-item>
+            <el-menu-item index="2">课程</el-menu-item>
           </el-menu>
           <router-view/>
         </el-main>
@@ -38,7 +38,15 @@ export default {
     const router = useRouter();
     const activeIndex = ref('1');
     const handleSelect = (key, keyPath) => {
-        const url = "/" + key;
+        let url = ""
+        switch (key) {
+          case '1':
+            url = "/news";
+            break;
+          case '2':
+            url = "/courses";
+            break;
+        }
         router.push(url)
     }
 
