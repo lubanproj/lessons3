@@ -1,5 +1,6 @@
 import News from "../components/news.vue";
 import Course from "../components/course.vue";
+import Details from "../components/details.vue";
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
@@ -14,6 +15,10 @@ const routes = [
     {
         path: "/courses",
         component: Course,
+    },
+    {
+        path: "/details/:id",
+        component: Details,
     }
 ];
 

@@ -2,7 +2,7 @@
   <ul>
     <li class="card" v-for="course in courseList" :key="course.id">
       <el-card class="box-card">
-        <div class="courseItem">
+        <div class="courseItem" @click.active="toDetails(course.id)">
         <el-row>
           <el-col :span="8">
             <span><img :src="course.coverImg" class="coverImg"/></span>
@@ -29,6 +29,7 @@
 <script lang="ts">
 
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: "course",
@@ -61,8 +62,14 @@ export default {
        }
      ]);
 
+     const router = useRouter();
+     const toDetails = (id: string) => {
+        router.push("/details/" + id);
+     }
+
      return {
        courseList,
+       toDetails,
      }
   }
 }
@@ -91,6 +98,7 @@ hr {
 }
 .courseItem {
   line-height:2;
+  cursor: pointer;
 }
 
 </style>
