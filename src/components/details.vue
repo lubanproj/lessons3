@@ -9,12 +9,8 @@
       </el-steps>
     </el-aside>
     <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-      </el-header>
 
-      <el-main>
-      </el-main>
-    </el-container>
+   </el-container>
   </el-container>
 
 </template>
@@ -69,10 +65,6 @@ export default {
 
 .el-step {
   cursor: pointer;
-}
-
-.el-aside {
-  line-height: 200px;
 }
 
 .el-header {
