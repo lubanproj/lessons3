@@ -1,20 +1,43 @@
 <template>
-  <ul>
-    <li class="card" v-for="news in newsList" :key="news.id">
-      <el-card class="box-card">
-          <h4>{{news.title}}</h4>
-          {{news.content}}
-      </el-card>
-    </li>
-  </ul>
+
+  <el-container>
+    <el-header>
+      <div id="app">Couple</div>
+    </el-header>
+    <el-container>
+      <el-aside width="15%"></el-aside>
+      <el-container>
+        <el-main>
+          <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu-item index="1">动态</el-menu-item>
+            <el-menu-item index="2">课程</el-menu-item>
+          </el-menu>
+        </el-main>
+        <ul>
+          <li class="card" v-for="news in newsList" :key="news.id">
+            <el-card class="box-card">
+              <h4>{{news.title}}</h4>
+              {{news.content}}
+            </el-card>
+          </li>
+        </ul>
+        <el-footer></el-footer>
+      </el-container>
+      <el-aside width="15%"></el-aside>
+    </el-container>
+  </el-container>
 
 </template>
 
 <script lang="ts">
 import { ref } from 'vue'
+import { useRouter } from "vue-router";
+import Footer from './footer.vue';
 export default {
 
   setup() {
+    const router = useRouter();
+    const activeIndex = ref('1');
     const newsList = ref([
       {
         id: 1,
@@ -27,11 +50,27 @@ export default {
         content:"油管网作为世界上最大的视频网站，其中歌曲的MV播放量都高的惊人，本期就为大家整理一期单曲播放量" +
             "最高的十首歌，一起来听听看吧"
       }
-    ])
+    ]);
+    const handleSelect = (key, keyPath) => {
+      let url = ""
+      switch (key) {
+        case '1':
+          url = "/news";
+          break;
+        case '2':
+          url = "/courses";
+          break;
+      }
+      router.push(url)
+    }
+
     return {
-      newsList
+      activeIndex,
+      newsList,
+      handleSelect,
     }
   }
+
 }
 </script>
 
@@ -51,6 +90,15 @@ hr {
   background-color: #f0f7ff;
   border-color: #ffffff;
   border-radius: 1px;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 
 </style>

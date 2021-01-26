@@ -1,9 +1,22 @@
 <template>
-  <el-steps class="el-steps" :active="active" direction="vertical" finish-status="success" space="50px">
-    <el-step class="el-step" v-for="chapter in chapterList" :key="chapter.id" @click="next(chapter.id)" :title="chapter.title">
 
-    </el-step>
-  </el-steps>
+  <el-container>
+    <el-aside width="25%" style="min-height: 700px;">
+      <el-steps class="el-steps" :active="active" direction="vertical" finish-status="success" space="50px">
+        <el-step class="el-step" v-for="chapter in chapterList" :key="chapter.id" @click="next(chapter.id)" :title="chapter.title">
+
+        </el-step>
+      </el-steps>
+    </el-aside>
+    <el-container>
+      <el-header style="text-align: right; font-size: 12px">
+      </el-header>
+
+      <el-main>
+      </el-main>
+    </el-container>
+  </el-container>
+
 </template>
 
 <script lang="ts">
@@ -58,5 +71,18 @@ export default {
   cursor: pointer;
 }
 
+.el-aside {
+  line-height: 200px;
+}
+
+.el-header {
+  background-color: #B3C0D1;
+  color: #333;
+  line-height: 60px;
+}
+
+.el-aside {
+  color: #333;
+}
 
 </style>
