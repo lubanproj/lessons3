@@ -21,20 +21,23 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
   setup() {
     const router = useRouter();
-    const activeIndex = ref('1');
+    const store = useStore();
+    const activeIndex = store.state.activeIndex;
     const handleSelect = (key, keyPath) => {
       let url = ""
       switch (key) {
         case '1':
+          store.commit('changeActive','1');
           url = "/news";
           break;
         case '2':
+          store.commit('changeActive', 2);
           url = "/courses";
           break;
       }
