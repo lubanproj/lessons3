@@ -1,10 +1,13 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import ElementPlus from 'element-plus';
+import element from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
-import router from './router'
+import VueMarkdownIt from 'vue3-markdown-it';
+import 'highlight.js/styles/monokai.css';
+import router from './router';
 
-const app = createApp(App)
-app.use(ElementPlus)
-app.use(router)
-app.mount('#app')
+const app = createApp(App);
+app.use(element);
+app.use(router);
+app.use(VueMarkdownIt);
+app.mount('#app');
