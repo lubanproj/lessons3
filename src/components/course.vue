@@ -35,7 +35,6 @@ export default {
   name: "course",
 
   setup() {
-    const activeIndex = ref('2');
     const courseList = ref([
        {
          id : 1,
@@ -69,7 +68,6 @@ export default {
      }
 
      return {
-       activeIndex,
        courseList,
        toDetails,
      }
