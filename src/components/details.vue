@@ -1,4 +1,14 @@
 <template>
+  <el-header>
+    <el-row>
+      <el-col :span="6">
+        Couple
+      </el-col>
+      <el-col :span="18">
+        <span>{{ article.title }}</span>
+      </el-col>
+    </el-row>
+  </el-header>
   <el-container>
     <el-aside width="25%" style="min-height: 700px;">
       <el-steps class="el-steps" :active="active" direction="vertical" finish-status="success" space="50px">
@@ -9,7 +19,7 @@
     </el-aside>
     <el-container>
       <div class="content">
-        <vue3-markdown-it :source='content' />
+        <vue3-markdown-it :source='article.content' />
       </div>
    </el-container>
   </el-container>
@@ -52,8 +62,8 @@ export default {
       content: "###### hello world",
     }])
 
-    let content = computed( ()=> {
-      return articleList[active.value].content;
+    let article = computed( ()=> {
+      return articleList[active.value];
     })
 
     const next = (id : number) => {
@@ -64,7 +74,7 @@ export default {
       active,
       articleList,
       next,
-      content,
+      article,
     }
   }
 }
@@ -81,9 +91,13 @@ export default {
 }
 
 .el-header {
-  background-color: #B3C0D1;
-  color: #333;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
   line-height: 60px;
+}
+.el-header span {
+  font-size: 1.17em;
+  font-weight: bold;
 }
 
 .el-aside {
