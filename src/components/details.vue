@@ -2,10 +2,12 @@
   <el-header>
     <el-row>
       <el-col :span="6">
-        Couple
+        <header>Couple</header>
       </el-col>
       <el-col :span="18">
-        <span>{{ article.title }}</span>
+        <article>
+          <span>{{ article.title }}</span>
+        </article>
       </el-col>
     </el-row>
   </el-header>
