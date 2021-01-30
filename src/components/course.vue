@@ -1,6 +1,6 @@
 <template>
     <ul>
-      <li class="card" v-for="course in courseList" :key="course.id">
+      <li class="card" v-for="course in data.courses" :key="course.id">
         <el-card class="box-card">
           <div class="courseItem" @click.active="toDetails(course.id)">
             <el-row>
@@ -28,49 +28,29 @@
 
 <script lang="ts">
 
-import { ref } from 'vue';
+import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { GetCourses } from "../api/request";
 
 export default {
   name: "course",
 
   setup() {
-    const courseList = ref([
-       {
-         id : 1,
-         title : "vue 入门实战",
-         coverImg : "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3971822744,688613491&fm=26&gp=0.jpg",
-         desc : "通过实战教学的方式，让你迅速掌握 vue 框架",
-         author : {
-           name : "DIU哥",
-           title : "开源社区活跃者",
-         },
-         uv : 5632,
-         price : "免费",
-       },
-       {
-         id : 2,
-         coverImg : "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3976938554,553488700&fm=26&gp=0.jpg",
-         title : "go 入门实战",
-         desc : "通过实战教学的方式，让你迅速掌握 go 语言",
-         author : {
-           name : "DIU哥",
-           title : "开源社区活跃者",
-         },
-         uv : 9867,
-         price : "免费",
-       }
-     ]);
+    let data = reactive({
+       courses : [],
+    });
+
+    GetCourses().then(res => data.courses = res);
 
     const router = useRouter();
-     const toDetails = (id: string) => {
-        router.push("/details/" + id);
-     }
+    const toDetails = (id: string) => {
+      router.push("/details/" + id);
+    }
 
-     return {
-       courseList,
-       toDetails,
-     }
+    return {
+      data,
+      toDetails,
+    }
   }
 }
 </script>
