@@ -1,6 +1,7 @@
 <template>
   <ul>
-    <li class="card" v-for="news in newsList" :key="news.id">
+    {{ newsList }}
+    <li class="card" v-for="news in data.newsList" :key="news.id">
       <el-card class="box-card">
         <h4>{{news.title}}</h4>
         {{news.content}}
@@ -11,27 +12,22 @@
 
 <script lang="ts">
 import { GetNews } from '../api/request'
-import { useStore } from 'vuex';
+import { reactive } from 'vue';
 
 export default {
 
-  beforeCreate() {
-    const store = useStore();
-    let newsList;
-    GetNews().then(res => {
-      newsList = res;
-      store.commit('updateNews', newsList)
-    });
-  },
-
   setup() {
 
-    const store = useStore();
+    let data = reactive({
+       newsList : [],
+    });
 
-    let newsList = store.state.newsList;
+    GetNews().then(res => {
+      data.newsList = res;
+    });
 
     return {
-      newsList
+      data
     }
   }
 }
