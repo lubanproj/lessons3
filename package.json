@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.28",
     "vue": "^3.0.5",
+    "vue-phone-number-input": "^1.1.10",
     "vue-router": "^4.0.3",
     "vue3-markdown-it": "^1.0.7",
     "vuex": "^4.0.0-rc.2"
