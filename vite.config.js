@@ -8,5 +8,9 @@ export default {
         vue(),
     ],
 
-    optimizedCacheDir: 'c:/web/lessons/temp'
+    optimizedCacheDir: 'c:/web/lessons/temp',
+
+    server: {
+        port: 80,
+    }
 }

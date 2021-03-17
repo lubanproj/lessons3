@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function GetNews() {
     let newsList;
-    await axios.get('http://localhost:3001/news').then(
+    await axios.get('http://127.0.0.1:3001/news').then(
         res => {
             newsList = res.data
         }
@@ -13,11 +13,10 @@ export async function GetNews() {
 
 export async function GetCourses() {
     let courseList;
-    await axios.get('http://localhost:3001/courses').then(
+    await axios.get('http://127.0.0.1:3001/courses').then(
         res => {
             courseList = res.data
         }
     )
     return courseList;
 }
-
