@@ -34,7 +34,7 @@
             </el-col>
             <el-col :span="18" class="book-content">
               <div class="book-content-markdown">
-                <vue3-markdown-it :source='article.content' />
+                <vue3-markdown-it :source='article.content'/>
               </div>
             </el-col>
             <el-col :span="3" class="book-right">

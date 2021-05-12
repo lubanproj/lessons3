@@ -1,3 +1,32 @@
+// import { createStore } from 'vuex';
+// import contentState from './contentState'
+// import content from './content'
+// import file from './file'
+// import layout from './layout'
+//
+// const store = createStore({
+//   modules: {
+//     contentState,
+//     content,
+//     file,
+//     layout
+//   },
+//   state: {
+//     url: '',
+//     scrollSync: true
+//   },
+//   mutations: {
+//     setUrl(state, url) {
+//       state.url = url
+//     },
+//     toggleScrollSync(state) {
+//       state.scrollSync = !state.scrollSync
+//     }
+//   }
+// })
+
+// export default store
+
 import { createStore } from 'vuex';
 
 // add by lubanproj, add markdown
@@ -36,3 +65,4 @@ const store = createStore({
 })
 
 export default store;
+

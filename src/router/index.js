@@ -2,6 +2,7 @@ import News from "../components/news.vue";
 import Course from "../components/course.vue";
 import Details from "../components/details.vue";
 import Home from "../components/home.vue";
+import Edit from "../components/edit.vue";
 
 import { createRouter, createWebHashHistory } from 'vue-router';
 
@@ -27,6 +28,10 @@ const routes = [
     {
         path: "/details/:id",
         component: Details,
+    },
+    {
+        path: "/edit",
+        component: Edit,
     }
 ];
 
